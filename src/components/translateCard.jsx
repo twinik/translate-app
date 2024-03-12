@@ -4,9 +4,10 @@ import ActionButton from "./actionButton";
 
 import SoundIcon from "/sound_max_fill.svg";
 import CopyIcon from "/Copy.svg";
+import TranslateIcon from "/Sort_alfa.svg";
 
 function TranslateCard({ languages, language, setLanguage, text, setText }) {
-  const [characters, setCharacters] = useState(0);
+  const [characters, setCharacters] = useState(text.length);
 
   const handleTextChange = (e) => {
     setText(e.target.value);
@@ -32,20 +33,21 @@ function TranslateCard({ languages, language, setLanguage, text, setText }) {
         value={text}
         onChange={(e) => handleTextChange(e)}
         maxLength={500}
-        className="bg-transparent text-white focus:outline-none h-32 w-full p-2 align-top"
+        className="resize-none bg-transparent text-white focus:outline-none h-32 w-full p-2 align-top"
       />
       <div className="flex justify-end">
         <p className="text-lightGray text-xs">{characters}/500</p>
       </div>
       <div className="flex flex-row justify-between mt-3">
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row gap-2 items-end">
           <ActionButton icon={SoundIcon} action={() => alert("Sound")} />
           <ActionButton icon={CopyIcon} action={() => alert("Copy")} />
         </div>
         <button
-          className="py-2 px-4 bg-blue text-white rounded-2xl hover:bg-lightBlue transition-colors duration-300 ease-in-out"
+          className="py-3 px-5 bg-blue text-white rounded-xl hover:bg-lightBlue transition-colors duration-300 ease-in-out flex flex-row gap-2 items-center font-bold focus:outline-none"
           onClick={() => alert("Translate")}
         >
+          <img src={TranslateIcon} alt="Translate" className="h-5 w-5" />
           Translate
         </button>
       </div>
