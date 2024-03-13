@@ -10,6 +10,8 @@ function TranslateCard({
   language,
   setLanguageToTranslate,
   translatedText,
+  handleSpeak,
+  handleCopy,
 }) {
   return (
     <div className="bg-veryDarkGray rounded-3xl border border-lightGray p-5 font-bold w-full text-sm">
@@ -32,8 +34,14 @@ function TranslateCard({
       </p>
 
       <div className="flex flex-row gap-2 items-end">
-        <ActionButton icon={SoundIcon} action={() => alert("Sound")} />
-        <ActionButton icon={CopyIcon} action={() => alert("Copy")} />
+        <ActionButton
+          icon={SoundIcon}
+          action={() => handleSpeak(translatedText)}
+        />
+        <ActionButton
+          icon={CopyIcon}
+          action={() => handleCopy(translatedText)}
+        />
       </div>
     </div>
   );

@@ -6,7 +6,16 @@ import SoundIcon from "/sound_max_fill.svg";
 import CopyIcon from "/Copy.svg";
 import TranslateIcon from "/Sort_alfa.svg";
 
-function TranslateCard({ languages, language, setLanguage, text, setText }) {
+function TranslateCard({
+  languages,
+  language,
+  setLanguage,
+  text,
+  setText,
+  handleTranslate,
+  handleSpeak,
+  handleCopy,
+}) {
   const [characters, setCharacters] = useState(text.length);
 
   const handleTextChange = (e) => {
@@ -40,12 +49,12 @@ function TranslateCard({ languages, language, setLanguage, text, setText }) {
       </div>
       <div className="flex flex-row justify-between mt-3">
         <div className="flex flex-row gap-2 items-end">
-          <ActionButton icon={SoundIcon} action={() => alert("Sound")} />
-          <ActionButton icon={CopyIcon} action={() => alert("Copy")} />
+          <ActionButton icon={SoundIcon} action={() => handleSpeak(text)} />
+          <ActionButton icon={CopyIcon} action={() => handleCopy(text)} />
         </div>
         <button
           className="py-3 px-5 bg-blue text-white rounded-xl hover:bg-lightBlue transition-colors duration-300 ease-in-out flex flex-row gap-2 items-center font-bold focus:outline-none"
-          onClick={() => alert("Translate")}
+          onClick={handleTranslate}
         >
           <img src={TranslateIcon} alt="Translate" className="h-5 w-5" />
           Translate
