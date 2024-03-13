@@ -69,7 +69,7 @@ function App() {
         alt="logo"
         className="h-12 mb-3 2xl:h-20 xl:mb-20 xl:h-16"
       />
-      <div className="flex flex-col lg:flex-row w-full gap-3">
+      <div className="flex flex-col lg:flex-row w-full gap-3 justify-center ">
         <Toaster />
         <TranslateCard
           languages={languages}
