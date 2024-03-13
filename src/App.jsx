@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Toaster, toast } from "sonner";
 import TranslateCard from "./components/translateCard";
 import TranslatedCard from "./components/translatedCard";
 import { translate } from "./services/translate";
@@ -10,6 +11,11 @@ const languages = [
   { name: "English", code: "en" },
   { name: "French", code: "fr" },
   { name: "Spanish", code: "es" },
+  { name: "German", code: "de" },
+  { name: "Italian", code: "it" },
+  { name: "Portuguese", code: "pt" },
+  { name: "Russian", code: "ru" },
+  { name: "Hebrew", code: "he" },
 ];
 
 function App() {
@@ -47,16 +53,24 @@ function App() {
 
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
+    toast.success("Text copied to clipboard");
+  };
+
+  const handleSwitch = () => {
+    const aux = language;
+    setLanguage(languageToTranslate);
+    setLanguageToTranslate(aux);
   };
 
   return (
-    <div className="flex flex-col justify-center items-center py-16 px-5 xl:px-16">
+    <div className="flex flex-col pt-3 items-center px-5 xl:px-16 2xl:px-40 h-dvh xl:pt-24 2xl:pt-36">
       <img
         src="/logo.svg"
         alt="logo"
-        className="h-12 mb-8 2xl:h-20 xl:mb-16 2xl:mb-20 xl:h-16"
+        className="h-12 mb-3 2xl:h-20 xl:mb-20 xl:h-16"
       />
       <div className="flex flex-col lg:flex-row w-full gap-3">
+        <Toaster />
         <TranslateCard
           languages={languages}
           language={language}
@@ -74,6 +88,7 @@ function App() {
           translatedText={translatedText}
           handleSpeak={handleSpeak}
           handleCopy={handleCopy}
+          handleSwitch={handleSwitch}
         />
       </div>
     </div>

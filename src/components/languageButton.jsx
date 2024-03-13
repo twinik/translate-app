@@ -1,8 +1,8 @@
 function LanguageButton({ language, selectedLanguage, setLanguage }) {
   const isSelected = language.code === selectedLanguage;
   const buttonClass = isSelected
-    ? "bg-lightGray text-white"
-    : "text-lightGray hover:bg-lightGray hover:text-white";
+    ? "bg-lightGray text-smokeWhite"
+    : "text-lightGray hover:bg-lightGray hover:text-smokeWhite";
 
   return (
     <button

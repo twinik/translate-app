@@ -1,5 +1,6 @@
 import LanguageButton from "./languageButton";
 import ActionButton from "./actionButton";
+import ExpandButton from "./expandButton";
 
 import SoundIcon from "/sound_max_fill.svg";
 import CopyIcon from "/Copy.svg";
@@ -12,21 +13,30 @@ function TranslateCard({
   translatedText,
   handleSpeak,
   handleCopy,
+  handleSwitch,
 }) {
   return (
-    <div className="bg-veryDarkGray rounded-3xl border border-lightGray p-5 font-bold w-full text-sm">
+    <div className="bg-veryDarkGray rounded-3xl border border-lightGray p-5 font-bold w-full xl:w-[38rem] text-sm">
       <div className="flex flex-row justify-between items-center">
-        <div className="flex flex-row gap-3 overflow-x-auto">
-          {languages.slice(1).map((lan) => (
-            <LanguageButton
-              key={lan.code}
-              language={lan}
-              selectedLanguage={language}
-              setLanguage={setLanguageToTranslate}
-            />
-          ))}
+        <div className="flex flex-row gap-2 overflow-x-auto items-center">
+          {languages
+            .slice(1)
+            .slice(0, 3)
+            .map((lan) => (
+              <LanguageButton
+                key={lan.code}
+                language={lan}
+                selectedLanguage={language}
+                setLanguage={setLanguageToTranslate}
+              />
+            ))}
+          <ExpandButton />
         </div>
-        <ActionButton icon={SwitchIcon} action={() => alert("Switch")} />
+        <ActionButton
+          icon={SwitchIcon}
+          action={() => handleSwitch()}
+          extraStyles={"ml-3 w-16 xl:w-8"}
+        />
       </div>
       <div className="h-px my-3 bg-lightGray w-full"></div>
       <p className="overflow-y-auto bg-transparent text-white focus:outline-none h-[10.5rem] w-full p-2 align-top">
