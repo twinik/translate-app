@@ -16,7 +16,7 @@ function TranslateCard({
   handleSwitch,
 }) {
   return (
-    <div className="bg-veryDarkGray rounded-3xl border border-lightGray p-5 font-bold w-full xl:w-[38rem] text-sm">
+    <div className="bg-veryDarkGray rounded-3xl border border-lightGray p-5 font-bold w-full text-sm">
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row gap-2 overflow-x-auto items-center">
           {languages

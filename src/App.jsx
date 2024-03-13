@@ -64,13 +64,13 @@ function App() {
 
   return (
     <div className="flex flex-col pt-3 items-center px-5 xl:px-16 2xl:px-40 h-dvh xl:pt-24 2xl:pt-36">
+      <Toaster />
       <img
         src="/logo.svg"
         alt="logo"
         className="h-12 mb-3 2xl:h-20 xl:mb-20 xl:h-16"
       />
-      <div className="flex flex-col lg:flex-row w-full gap-3 justify-center ">
-        <Toaster />
+      <div className="flex flex-col lg:flex-row w-full gap-3 justify-center 2xl:px-12">
         <TranslateCard
           languages={languages}
           language={language}
