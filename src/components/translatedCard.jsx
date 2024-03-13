@@ -21,7 +21,7 @@ function TranslateCard({
         <div className="flex flex-row gap-2 overflow-x-auto items-center">
           {languages
             .slice(1)
-            .slice(0, 3)
+            .slice(0, 4)
             .map((lan) => (
               <LanguageButton
                 key={lan.code}

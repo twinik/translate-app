@@ -11,11 +11,7 @@ const languages = [
   { name: "English", code: "en" },
   { name: "French", code: "fr" },
   { name: "Spanish", code: "es" },
-  { name: "German", code: "de" },
-  { name: "Italian", code: "it" },
   { name: "Portuguese", code: "pt" },
-  { name: "Russian", code: "ru" },
-  { name: "Hebrew", code: "he" },
 ];
 
 function App() {
